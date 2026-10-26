@@ -1,0 +1,27 @@
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.live { display: flex; flex-wrap: wrap; gap: 4px 28px; align-items: baseline; }
+.live div { display: flex; align-items: baseline; gap: 6px; }
+.live b { font-size: 30px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.live span { color: var(--text-3); font-size: 13px; }
+
+.arena { position: relative; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); padding: 18px 20px; cursor: text; }
+.arena.focused { border-color: var(--line-strong); }
+.words { --lh: 44px; font-size: 25px; line-height: var(--lh); height: calc(var(--lh) * 3); overflow: hidden; color: var(--text-3); user-select: none; word-break: keep-all; overflow-wrap: break-word; }
+.words[dir="rtl"] { font-size: 27px; }
+.words .w { display: inline-block; white-space: nowrap; }
+.words .c.ok { color: var(--text); }
+.words .c.bad { color: var(--danger); background: var(--danger-soft); border-radius: 3px; }
+.words .c.sp.bad { background: var(--danger-soft); }
+.words .cur { box-shadow: inset 2px 0 0 var(--accent); animation: caret 1s steps(2) infinite; }
+.words[dir="rtl"] .cur { box-shadow: inset -2px 0 0 var(--accent); }
+.arena.running .words .cur { animation: none; }
+@keyframes caret { 50% { box-shadow: none; } }
+.typer { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; border: 0; padding: 0; cursor: text; font-size: 16px; }
+.focus-hint { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 14px; background: color-mix(in srgb, var(--surface-2) 70%, transparent); backdrop-filter: blur(3px); color: var(--text-2); font-weight: 600; pointer-events: none; }
+.arena.focused .focus-hint { display: none; }
+.arena.done .words { opacity: .45; }
+
+h3.sub { font-size: 13px; color: var(--text-2); font-weight: 650; margin: 16px 0 8px; }
+#resStats .stat:first-child b { color: var(--accent); font-size: 34px; }
+.key { font-family: var(--mono); }
+@media (max-width: 560px) { .words { --lh: 36px; font-size: 20px; } .words[dir="rtl"] { font-size: 22px; } .live { gap: 16px; } .live b { font-size: 24px; } }

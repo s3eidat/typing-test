@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Typing Test — Free Typing Speed Test (WPM) in English &amp; Arabic | S3eidat Tools</title>
+<meta name="description" content="Test your typing speed and accuracy in English or Arabic. 15, 30 or 60 second and word-count modes, live WPM, raw and net WPM, your most-missed keys and a personal best. Free and private.">
+<meta property="og:title" content="Typing Test — WPM and accuracy, English &amp; Arabic">
+<meta property="og:description" content="Measure your typing speed and accuracy. Runs 100% in your browser.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="typing-test">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>Typing Test</h1>
+    <p>How fast do you type? Pick a mode, start typing, and see your words per minute and accuracy live. English and Arabic word lists built in.</p>
+  </section>
+
+  <section class="card">
+    <div class="row between">
+      <div class="row">
+        <div class="seg" id="mode" role="group" aria-label="Test length">
+          <button aria-pressed="false" data-v="t15">15s</button>
+          <button aria-pressed="false" data-v="t30">30s</button>
+          <button aria-pressed="false" data-v="t60">60s</button>
+          <button aria-pressed="false" data-v="w10">10 words</button>
+          <button aria-pressed="false" data-v="w25">25 words</button>
+          <button aria-pressed="false" data-v="w50">50 words</button>
+        </div>
+        <div class="seg" id="lang" role="group" aria-label="Language">
+          <button aria-pressed="false" data-v="en">English</button>
+          <button aria-pressed="false" data-v="ar">العربية</button>
+        </div>
+      </div>
+      <span class="chip" id="pb">No personal best yet</span>
+    </div>
+
+    <div class="live mt" id="live">
+      <div><b id="lTime">30</b><span id="lTimeLbl">seconds</span></div>
+      <div><b id="lWpm">0</b><span>WPM</span></div>
+      <div><b id="lAcc">100%</b><span>accuracy</span></div>
+    </div>
+
+    <div class="arena mt" id="arena">
+      <div class="words" id="words" aria-hidden="true"></div>
+      <label class="sr" for="typer">Type the words shown</label>
+      <input id="typer" class="typer" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <div class="focus-hint" id="hint">Click here or press any key to start typing</div>
+    </div>
+
+    <div class="row mt between">
+      <span class="faint"><kbd>Tab</kbd> or <kbd>Esc</kbd> restarts with new words. The timer starts on your first key.</span>
+      <button class="btn" id="restart"><svg class="i"><use href="#i-refresh"/></svg>Restart</button>
+    </div>
+  </section>
+
+  <section class="card mt" id="results" hidden>
+    <div class="row between">
+      <h2>Result <small id="resMode"></small></h2>
+      <div class="row"><span class="chip ok" id="newPb" hidden>New personal best!</span><button class="btn small" id="copyRes"><svg class="i"><use href="#i-copy"/></svg>Copy result</button></div>
+    </div>
+    <div class="stats" id="resStats"></div>
+    <h3 class="sub mt">Most missed keys</h3>
+    <div class="row" id="missed"></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
